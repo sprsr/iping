@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include "iping.h"
+
 
 int main(int argc, char *argv[]) {
 
@@ -7,8 +9,12 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[i],"--help") == 0) {
             printf("\nHelp Message!\n");      
         }
-
-        printf("\n%s\n", argv[i]);
+        if (strcmp(argv[i],"--l4") == 0) {
+            printf("\nL4  Header\n");
+            if (strcmp(argv[i+1], "udp") == 0) {
+                printf("\nL4 will be UDP\n"); 
+            }
+        }
     }
    return 0;
 }

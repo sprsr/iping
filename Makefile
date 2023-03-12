@@ -1,10 +1,35 @@
-C = gcc
+
+# Executable Name
+TARGET = iping
+
+# Compiler
+CC = gcc
+
+ # Flags
 CFLAGS = -Wall -Wextra -Werror
 
-all: main
+# Directories containing header files
+INCLUDES = iping.h
 
-main: main.c
-	$(CC) $(CFLAGS) -o main main.c
+# Libraries in Executable
+LIBS = 
 
-clean: 
-	rm -f main
+# Source Files
+SRCS = main.c
+
+# Object Files
+OBJS = $(SRCS:.c=.o)
+
+# rule for making the executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+# suffix replacement rule for building .o's from .c's
+%.o: %.c $(INCLUDES)
+	$(CC) $(CFLAGS) -c $< 
+	 
+# rule for cleaning everything
+clean:
+	$(RM) $(OBJS) $(TARGET)
+ 
+
