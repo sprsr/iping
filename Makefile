@@ -9,14 +9,16 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 # Directories containing header files
-INCLUDES = iping.h
+INCLUDES = iping.h\
+		   genframe.h\
+
 
 # Libraries in Executable
 LIBS = 
 
 # Source Files
-SRCS = main.c
-
+SRCS = main.c\
+	   genframe.c
 # Object Files
 OBJS = $(SRCS:.c=.o)
 
