@@ -51,9 +51,9 @@ typedef __uint128_t uint128_t;
 //   |                    Options                    |    Padding    |
 //   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 //   For more information: Resources/RFC791.txt   
-//////////////////////////////////////////////////////////////////////////
-struct ipv4_hdr {
-    uint8_t ihl:4,verison:4;
+/////////////////////////////////////////////////////////////////////////
+typedef struct ipv4_hdr {
+    uint8_t ihl:4,version:4;
     uint8_t tos;
     uint16_t total_length;
     uint16_t id;
@@ -64,7 +64,7 @@ struct ipv4_hdr {
     uint32_t source_addr;
     uint32_t dest_addr;
     //Note that options and padding are not included in the ipv4_hdr struct
-};
+}ipv4_hdr;
 
 //////////////////////////////////////////////////////////////////////////
 //   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -91,7 +91,7 @@ struct ipv4_hdr {
 
 //////////////////////////////////////////////////////////////////////////
 
-struct ipv6_hdr {
+typedef struct ipv6_hdr {
     uint32_t flow_label:20,traffic_class:8,version:4;
     uint16_t payload_length;
     uint8_t next_header;
